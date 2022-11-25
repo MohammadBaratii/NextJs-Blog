@@ -1,0 +1,3 @@
+- use next/image
+- footer
+- readme

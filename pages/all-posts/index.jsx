@@ -1,8 +1,8 @@
 import Head from "next/head";
-import PostList from "../components/PostList";
-import { getFeaturedPosts } from "../services";
+import PostList from "../../components/PostList";
+import { getPosts } from "../../services";
 
-export default function Home({ posts }) {
+const AllPosts = ({ posts }) => {
   return (
     <>
       <Head>
@@ -10,15 +10,17 @@ export default function Home({ posts }) {
         <meta name="description" content="A Blog App using Next.js" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <PostList title={"Featured Posts"} posts={posts} />
+      <PostList title={"All Posts"} posts={posts} />
     </>
   );
-}
+};
 
 export const getStaticProps = async () => {
-  const posts = (await getFeaturedPosts()) || [];
+  const posts = (await getPosts()) || [];
 
   return {
     props: { posts },
   };
 };
+
+export default AllPosts;
