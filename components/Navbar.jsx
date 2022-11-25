@@ -9,6 +9,11 @@ const NAVBAR_BUTTONS = [
 
 const Navbar = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    getCategories().then((categories) => setCategories(categories));
+  }, []);
 
   return (
     <header className="sticky top-0 left-0 bg-white/50 backdrop-blur-md z-10">
@@ -75,6 +80,39 @@ const Navbar = () => {
                 </li>
               );
             })}
+            <li className="group relative">
+              <button className="flex items-center gap-1">
+                Categories
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-4 h-4"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                  />
+                </svg>
+              </button>
+              <div className="absolute hidden top-full right-0 w-max bg-white p-2 rounded-md shadow-[0_0_15px_#444] group-hover:grid">
+                {categories.map((category) => {
+                  return (
+                    <Link
+                      key={category.slug}
+                      href={`/category/${category.slug}`}
+                    >
+                      <a className="p-2 border-b border-neutral-300 last:border-none">
+                        {category.name}
+                      </a>
+                    </Link>
+                  );
+                })}
+              </div>
+            </li>
           </ul>
         </div>
       </nav>
