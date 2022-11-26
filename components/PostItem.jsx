@@ -13,13 +13,13 @@ const PostItem = ({ post }) => {
         className="w-full h-80 object-cover"
       />
       <div className="space-y-3 p-3 sm:px-5">
-        <h1 className="text-center text-2xl font-bold ">
+        <h2 className="text-center text-2xl font-bold ">
           <Link href={`/post/${slug}`}>
             <a className="400 hover:underline" title={title}>
               {title}
             </a>
           </Link>
-        </h1>
+        </h2>
         <div className="flex flex-col items-center gap-1 sm:flex-row sm:justify-between">
           <div className="flex items-center gap-1">
             <img

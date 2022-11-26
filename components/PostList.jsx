@@ -22,7 +22,7 @@ const PostList = ({ title, posts }) => {
           />
         </svg>
       </h3>
-      <section className="relative grid grid-cols-1 gap-5 m-auto py-5 lg:grid-cols-12">
+      <section className="relative grid grid-cols-1 gap-5 m-auto py-3 sm:py-5 lg:grid-cols-12">
         <div className="grid gap-5 col-span-1 lg:col-span-8">
           {posts.map((post) => {
             return (

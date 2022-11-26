@@ -98,19 +98,29 @@ const Navbar = () => {
                   />
                 </svg>
               </button>
-              <div className="absolute hidden top-full right-0 w-max bg-white p-2 rounded-md shadow-[0_0_15px_#444] group-hover:grid">
-                {categories.map((category) => {
-                  return (
-                    <Link
-                      key={category.slug}
-                      href={`/category/${category.slug}`}
-                    >
-                      <a className="p-2 border-b border-neutral-300 last:border-none">
-                        {category.name}
-                      </a>
-                    </Link>
-                  );
-                })}
+              <div className="absolute hidden top-full right-1/2 translate-x-1/2 group-hover:block sm:right-0 sm:translate-x-0">
+                <ul className="grid w-max bg-white p-2 rounded-lg translate-y-2 shadow-[0_0_15px_#444]">
+                  {categories.map((category) => {
+                    return (
+                      <li
+                        key={category.slug}
+                        className="border-b border-neutral-300 last:border-none"
+                      >
+                        <Link
+                          key={category.slug}
+                          href={`/category/${category.slug}`}
+                        >
+                          <a
+                            className="block p-2 text-neutral-900"
+                            onClick={() => setIsNavOpen(false)}
+                          >
+                            {category.name}
+                          </a>
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
               </div>
             </li>
           </ul>
