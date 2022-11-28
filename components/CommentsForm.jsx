@@ -87,7 +87,7 @@ const CommentsForm = ({ slug }) => {
         } block w-fit m-auto p-5 py-2 bg-amber-300 rounded-full`}
         disabled={loading}
       >
-        {loading ? "Sending..." : "Send Your Comment"}
+        {loading ? "Sending..." : "Send Comment"}
       </button>
     </form>
   );

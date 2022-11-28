@@ -6,8 +6,11 @@ import Comments from "../../components/Comments";
 import CommentsForm from "../../components/CommentsForm";
 import PostWidgets from "../../components/PostWidgets";
 import Head from "next/head";
+import { useSession } from "next-auth/react";
+import Link from "next/link";
 
 const PostDetails = ({ post }) => {
+  const { status } = useSession();
   return (
     <>
       <Head>
@@ -18,7 +21,20 @@ const PostDetails = ({ post }) => {
         <div className="grid gap-5 col-span-1 lg:col-span-8">
           <PostDetail post={post} />
           <Author author={post.author} />
-          <CommentsForm slug={post.slug} />
+          {status === "authenticated" ? (
+            <CommentsForm slug={post.slug} />
+          ) : (
+            <p className="p-5 bg-white rounded-xl">
+              You need to{" "}
+              <Link
+                href="/auth/signin"
+                className="text-indigo-500 underline decoration-indigo-500"
+              >
+                Sign In
+              </Link>{" "}
+              to leave a comment.
+            </p>
+          )}
           <Comments slug={post.slug} />
         </div>
         <div className="col-span-1 lg:col-span-4 ">
@@ -35,8 +51,6 @@ const PostDetails = ({ post }) => {
   );
 };
 
-export default PostDetails;
-
 export const getStaticProps = async ({ params }) => {
   const data = await getPostDetails(params.slug);
 
@@ -52,3 +66,5 @@ export const getStaticPaths = async () => {
     fallback: false,
   };
 };
+
+export default PostDetails;
