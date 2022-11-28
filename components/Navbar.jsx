@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { getCategories } from "../services";
+import AuthButton from "./AuthButton";
 
 const NAVBAR_BUTTONS = [
   { id: 1, title: "Home", slug: "/" },
@@ -17,7 +18,7 @@ const Navbar = () => {
 
   return (
     <header className="sticky top-0 left-0 bg-white/50 backdrop-blur-md z-10">
-      <nav className="wrapper p-5 sm:flex sm:justify-between sm:items-center sm:gap-7">
+      <nav className="wrapper p-3 sm:flex sm:justify-between sm:items-center">
         <div className="flex justify-between items-center">
           <h1 className="text-2xl font-bold">
             <Link href="/">Next.js Blog</Link>
@@ -61,9 +62,9 @@ const Navbar = () => {
         </div>
         <div>
           <ul
-            className={`navbar absolute grid place-content-center gap-5 top-0 ${
+            className={`${
               isNavOpen ? "left-0" : "-left-full"
-            } w-full h-screen text-neutral-100 !duration-300 sm:relative sm:flex sm:justify-between sm:left-0 sm:w-full sm:h-fit sm:text-neutral-900 sm:backdrop-blur-0`}
+            } navbar absolute grid place-content-center gap-3 top-0 w-full h-screen text-neutral-100 !duration-300 text-center sm:relative sm:flex sm:items-center sm:left-0 sm:w-full sm:h-fit sm:text-neutral-900 sm:backdrop-blur-0`}
             style={{}}
           >
             {NAVBAR_BUTTONS.map((button) => {
@@ -71,7 +72,7 @@ const Navbar = () => {
                 <li key={button.slug}>
                   <Link
                     href={button.slug}
-                    className="block rounded-md text-center transition hover:bg-dark-1"
+                    className="block p-2"
                     onClick={() => setIsNavOpen(false)}
                   >
                     {button.title}
@@ -80,7 +81,7 @@ const Navbar = () => {
               );
             })}
             <li className="group relative">
-              <button className="flex items-center gap-1">
+              <button className="flex items-center gap-1 p-2">
                 Categories
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -118,6 +119,9 @@ const Navbar = () => {
                   })}
                 </ul>
               </div>
+            </li>
+            <li>
+              <AuthButton />
             </li>
           </ul>
         </div>
