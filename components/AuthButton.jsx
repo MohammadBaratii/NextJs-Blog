@@ -18,7 +18,7 @@ const AuthButton = () => {
           onClick={() => signIn()}
           className="p-2 px-4 bg-indigo-500 text-white rounded-md transition hover:bg-indigo-600"
         >
-          Log In
+          Sign In
         </button>
       )}
     </>

@@ -18,7 +18,7 @@ const Navbar = () => {
 
   return (
     <header className="sticky top-0 left-0 bg-white/50 backdrop-blur-md z-10">
-      <nav className="wrapper p-3 sm:flex sm:justify-between sm:items-center">
+      <nav className="wrapper py-3 sm:flex sm:justify-between sm:items-center">
         <div className="flex justify-between items-center">
           <h1 className="text-2xl font-bold">
             <Link href="/">Next.js Blog</Link>
