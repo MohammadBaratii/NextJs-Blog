@@ -5,43 +5,52 @@ import "react-multi-carousel/lib/styles.css";
 import { getPosts } from "../services";
 import CarouselItem from "./CarouselItem";
 
-const customLeftArrow = (
-  <button className="absolute grid place-content-center left-0 w-10 h-10 bg-rose-400 rounded-full transition hover:bg-rose-500">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth={1.5}
-      stroke="currentColor"
-      className="w-6 h-6 text-white"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M15.75 19.5L8.25 12l7.5-7.5"
-      />
-    </svg>
-  </button>
-);
+// const ArrowFix = (arrowProps) => {
+//   const { carouselState, children, ...restArrowProps } = arrowProps;
+//   return <span {...restArrowProps}> {children} </span>;
+// };
 
-const customRightArrow = (
-  <button className="absolute grid place-content-center right-0 w-10 h-10 bg-rose-400 rounded-full transition hover:bg-rose-500">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth={1.5}
-      stroke="currentColor"
-      className="w-6 h-6 text-white"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M8.25 4.5l7.5 7.5-7.5 7.5"
-      />
-    </svg>
-  </button>
-);
+const CustomLeftArrow = () => {
+  return (
+    <button className="absolute grid place-content-center left-0 w-10 h-10 bg-rose-400 rounded-full transition hover:bg-rose-500">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth={1.5}
+        stroke="currentColor"
+        className="w-6 h-6 text-white"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M15.75 19.5L8.25 12l7.5-7.5"
+        />
+      </svg>
+    </button>
+  );
+};
+
+const CustomRightArrow = () => {
+  return (
+    <button className="absolute grid place-content-center right-0 w-10 h-10 bg-rose-400 rounded-full transition hover:bg-rose-500">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        strokeWidth={1.5}
+        stroke="currentColor"
+        className="w-6 h-6 text-white"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M8.25 4.5l7.5 7.5-7.5 7.5"
+        />
+      </svg>
+    </button>
+  );
+};
 
 const CarouselList = () => {
   const [posts, setPosts] = useState();
@@ -57,13 +66,14 @@ const CarouselList = () => {
       <Carousel
         autoPlay
         arrows
-        autoPlaySpeed={3000}
-        customRightArrow={customRightArrow}
-        customLeftArrow={customLeftArrow}
+        autoPlaySpeed={2500}
+        customRightArrow={<CustomRightArrow />}
+        customLeftArrow={<CustomLeftArrow />}
         draggable
         infinite
         pauseOnHover
         swipeable
+        rtl={0}
         responsive={{
           desktop: {
             breakpoint: {
