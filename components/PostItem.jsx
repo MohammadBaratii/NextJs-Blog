@@ -14,10 +14,12 @@ const PostItem = ({ post }) => {
       />
       <div className="space-y-3 p-3 sm:px-5">
         <h2 className="text-center text-2xl font-bold ">
-          <Link href={`/post/${slug}`}>
-            <a className="400 hover:underline" title={title}>
-              {title}
-            </a>
+          <Link
+            href={`/post/${slug}`}
+            className="400 hover:underline"
+            title={title}
+          >
+            {title}
           </Link>
         </h2>
         <div className="flex flex-col items-center gap-1 sm:flex-row sm:justify-between">
@@ -50,27 +52,26 @@ const PostItem = ({ post }) => {
           </div>
         </div>
         <h3 className="text-neutral-600">{excerpt}</h3>
-        <Link href={`/post/${slug}`}>
-          <a
-            className="flex items-center gap-1 w-fit m-auto p-5 py-2 bg-amber-300 rounded-full duration-150 hover:gap-2 hover:bg-amber-400"
-            title={title}
+        <Link
+          href={`/post/${slug}`}
+          className="flex items-center gap-1 w-fit m-auto p-5 py-2 bg-amber-300 rounded-full duration-150 hover:gap-2 hover:bg-amber-400"
+          title={title}
+        >
+          Read More
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-4 h-4"
           >
-            Read More
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-4 h-4"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M11.25 4.5l7.5 7.5-7.5 7.5m-6-15l7.5 7.5-7.5 7.5"
-              />
-            </svg>
-          </a>
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M11.25 4.5l7.5 7.5-7.5 7.5m-6-15l7.5 7.5-7.5 7.5"
+            />
+          </svg>
         </Link>
       </div>
     </article>

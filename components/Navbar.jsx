@@ -69,13 +69,12 @@ const Navbar = () => {
             {NAVBAR_BUTTONS.map((button) => {
               return (
                 <li key={button.slug}>
-                  <Link href={button.slug}>
-                    <a
-                      className="block rounded-md text-center transition hover:bg-dark-1"
-                      onClick={() => setIsNavOpen(false)}
-                    >
-                      {button.title}
-                    </a>
+                  <Link
+                    href={button.slug}
+                    className="block rounded-md text-center transition hover:bg-dark-1"
+                    onClick={() => setIsNavOpen(false)}
+                  >
+                    {button.title}
                   </Link>
                 </li>
               );
@@ -109,13 +108,10 @@ const Navbar = () => {
                         <Link
                           key={category.slug}
                           href={`/category/${category.slug}`}
+                          className="block p-2 text-neutral-900"
+                          onClick={() => setIsNavOpen(false)}
                         >
-                          <a
-                            className="block p-2 text-neutral-900"
-                            onClick={() => setIsNavOpen(false)}
-                          >
-                            {category.name}
-                          </a>
+                          {category.name}
                         </Link>
                       </li>
                     );

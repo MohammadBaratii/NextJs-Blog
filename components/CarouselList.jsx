@@ -1,18 +1,15 @@
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { getPosts } from "../services";
 import CarouselItem from "./CarouselItem";
 
-// const ArrowFix = (arrowProps) => {
-//   const { carouselState, children, ...restArrowProps } = arrowProps;
-//   return <span {...restArrowProps}> {children} </span>;
-// };
-
-const CustomLeftArrow = () => {
+const CustomLeftArrow = ({ onClick }) => {
   return (
-    <button className="absolute grid place-content-center left-0 w-10 h-10 bg-rose-400 rounded-full transition hover:bg-rose-500">
+    <button
+      className="absolute grid place-content-center left-0 w-10 h-10 bg-rose-400 rounded-full transition hover:bg-rose-500"
+      onClick={onClick}
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
@@ -31,9 +28,12 @@ const CustomLeftArrow = () => {
   );
 };
 
-const CustomRightArrow = () => {
+const CustomRightArrow = ({ onClick }) => {
   return (
-    <button className="absolute grid place-content-center right-0 w-10 h-10 bg-rose-400 rounded-full transition hover:bg-rose-500">
+    <button
+      className="absolute grid place-content-center right-0 w-10 h-10 bg-rose-400 rounded-full transition hover:bg-rose-500"
+      onClick={onClick}
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
@@ -55,6 +55,7 @@ const CustomRightArrow = () => {
 const CarouselList = () => {
   const [posts, setPosts] = useState();
   useEffect(() => {
+    // There is no need for this section to be pre-rendered so I use regular fetch here
     getPosts().then((posts) => setPosts(posts));
   }, []);
 

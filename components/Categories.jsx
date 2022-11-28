@@ -19,10 +19,11 @@ const Categories = () => {
         {categories.map((category) => {
           return (
             <li key={category.slug}>
-              <Link href={`/category/${category.slug}`}>
-                <a className="block p-2 rounded-lg transition hover:bg-indigo-200">
-                  {category.name}
-                </a>
+              <Link
+                href={`/category/${category.slug}`}
+                className="block p-2 rounded-lg transition hover:bg-indigo-200"
+              >
+                {category.name}
               </Link>
             </li>
           );
