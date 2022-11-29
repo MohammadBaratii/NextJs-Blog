@@ -1,4 +1,5 @@
 import moment from "moment";
+import Image from "next/image";
 import Link from "next/link";
 
 const PostItem = ({ post }) => {
@@ -7,9 +8,11 @@ const PostItem = ({ post }) => {
 
   return (
     <article className="bg-white rounded-xl overflow-hidden">
-      <img
+      <Image
         src={featuredImage.url}
         alt={title}
+        width="1080"
+        height="320"
         className="w-full h-80 object-cover"
       />
       <div className="space-y-3 p-3 sm:px-5">
@@ -24,9 +27,11 @@ const PostItem = ({ post }) => {
         </h2>
         <div className="flex flex-col items-center gap-1 sm:flex-row sm:justify-between">
           <div className="flex items-center gap-1">
-            <img
+            <Image
               src={author.photo.url}
               alt={author.name}
+              width="36"
+              height="36"
               className="w-9 h-9 object-cover"
             />
             <h3 className="text-neutral-600">{author.name}</h3>

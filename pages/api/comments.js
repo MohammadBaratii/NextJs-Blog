@@ -8,7 +8,7 @@ export default async function handler(req, res) {
   const comment = req.body.comment;
 
   if (name.trim() === "" || email.trim() === "" || comment.trim() === "") {
-    res.status(500).json({ inputError: "hell" });
+    res.status(500).json({ inputError: "empty input" });
     return;
   }
 

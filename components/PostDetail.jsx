@@ -1,5 +1,6 @@
 import React from "react";
 import moment from "moment";
+import Image from "next/image";
 
 const PostDetail = ({ post }) => {
   const getContentFragment = (index, text, obj, type) => {
@@ -46,12 +47,13 @@ const PostDetail = ({ post }) => {
         );
       case "image":
         return (
-          <img
+          <Image
             key={index}
+            src={obj.src}
             alt={obj.title}
             height={obj.height}
             width={obj.width}
-            src={obj.src}
+            className="m-auto"
           />
         );
       default:
@@ -61,17 +63,21 @@ const PostDetail = ({ post }) => {
 
   return (
     <article className="bg-white rounded-xl overflow-hidden">
-      <img
+      <Image
         src={post.featuredImage.url}
         alt={post.title}
+        width="1080"
+        height="320"
         className="w-full h-80 object-cover"
       />
       <div className="space-y-3 p-3 sm:px-5">
         <div className="flex flex-col items-center gap-1 sm:flex-row sm:justify-between">
           <div className="flex items-center gap-1">
-            <img
+            <Image
               src={post.author.photo.url}
               alt={post.author.name}
+              width="36"
+              height="36"
               className="w-9 h-9 object-cover object-top"
             />
             <h3 className="text-neutral-600">{post.author.name}</h3>

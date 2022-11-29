@@ -1,4 +1,5 @@
 import moment from "moment";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { getRecentPosts, getSimilarPosts } from "../services/index";
@@ -30,9 +31,11 @@ const PostWidgets = ({ category, slug }) => {
                 href={`/post/${relatedPost.slug}`}
                 className="flex items-center gap-3 p-2 rounded-lg transition hover:bg-indigo-200"
               >
-                <img
+                <Image
                   src={relatedPost.featuredImage.url}
                   alt={relatedPost.title}
+                  width="200"
+                  height="200"
                   className="w-14 h-14 object-cover rounded-full"
                 />
                 <div>

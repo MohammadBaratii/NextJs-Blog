@@ -60,7 +60,14 @@ const CarouselList = () => {
   }, []);
 
   if (!posts) {
-    return <div className="h-60" />;
+    return (
+      <div className="wrapper flex gap-6 h-60 pb-0">
+        <div className="w-full h-full bg-gradient-to-br from-black/40 to-black/80 rounded-xl" />
+        <div className="hidden w-full h-full bg-gradient-to-br from-black/40 to-black/80 rounded-xl sm:block" />
+        <div className="hidden w-full h-full bg-gradient-to-br from-black/40 to-black/80 rounded-xl md:block" />
+        <div className="hidden w-full h-full bg-gradient-to-br from-black/40 to-black/80 rounded-xl md:block" />
+      </div>
+    );
   }
   return (
     <div className="wrapper pb-0">
