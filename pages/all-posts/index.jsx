@@ -7,8 +7,6 @@ const AllPosts = ({ posts }) => {
     <>
       <Head>
         <title>Blog</title>
-        <meta name="description" content="A Blog App using Next.js" />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       <PostList title={"All Posts"} posts={posts} />
     </>

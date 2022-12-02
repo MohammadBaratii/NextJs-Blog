@@ -2,10 +2,14 @@ import moment from "moment";
 import Image from "next/image";
 import Link from "next/link";
 
-const PostItem = ({ post }) => {
-  const { author, categories, createdAt, excerpt, featuredImage, slug, title } =
-    post;
-
+const PostItem = ({
+  author,
+  createdAt,
+  excerpt,
+  featuredImage,
+  slug,
+  title,
+}) => {
   return (
     <article className="bg-white rounded-xl overflow-hidden">
       <Image

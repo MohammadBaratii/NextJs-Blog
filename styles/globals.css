@@ -17,6 +17,13 @@ body {
   @apply bg-[url('../public/background.png')] bg-fixed bg-cover text-neutral-900 font-medium font-['Nunito'];
 }
 
+/* keep the footer at the bottom of the page */
+#__next {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 @layer components {
   .wrapper {
     @apply container m-auto p-3 sm:p-5;

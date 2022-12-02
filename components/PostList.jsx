@@ -25,7 +25,7 @@ const PostList = ({ title, posts }) => {
       <section className="relative grid grid-cols-1 gap-5 m-auto py-3 sm:py-5 lg:grid-cols-12">
         <div className="grid gap-5 col-span-1 lg:col-span-8">
           {posts.map((post) => {
-            return <PostItem key={post.createdAt} post={post} />;
+            return <PostItem key={post.createdAt} {...post} />;
           })}
         </div>
         <div className="col-span-1 lg:col-span-4 ">
