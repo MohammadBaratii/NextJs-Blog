@@ -3,7 +3,7 @@ import Author from "../../components/Author";
 import Categories from "../../components/Categories";
 import PostDetail from "../../components/PostDetail";
 import Comments from "../../components/Comments";
-import CommentsForm from "../../components/CommentsForm";
+import CommentForm from "../../components/CommentForm";
 import PostWidgets from "../../components/PostWidgets";
 import Head from "next/head";
 import { useSession } from "next-auth/react";
@@ -22,7 +22,7 @@ const PostDetails = ({ post }) => {
           <PostDetail post={post} />
           <Author author={post.author} />
           {status === "authenticated" ? (
-            <CommentsForm slug={post.slug} />
+            <CommentForm slug={post.slug} />
           ) : (
             <p className="p-5 bg-white rounded-xl">
               You need to{" "}
@@ -32,7 +32,7 @@ const PostDetails = ({ post }) => {
               >
                 Sign In
               </Link>{" "}
-              to leave a comment.
+              to send comment.
             </p>
           )}
           <Comments slug={post.slug} />

@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { submitComment } from "../services";
 
-const CommentsForm = ({ slug }) => {
+const CommentForm = ({ slug }) => {
   const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -21,28 +21,36 @@ const CommentsForm = ({ slug }) => {
       return;
     }
 
-    setLoading(true);
     setError(false);
+    setSuccess(true);
+    setTimeout(() => {
+      setSuccess(false);
+    }, 3000);
 
-    const newComment = {
-      name,
-      email,
-      comment,
-      slug,
-    };
+    // You can use the code bellow to allow users to send real comments. but i commented them to prevent spamming.
 
-    submitComment(newComment).then((res) => {
-      if (res.inputError) {
-        setError(true);
-        return;
-      }
-      setError(false);
-      setLoading(false);
-      setSuccess(true);
-      setTimeout(() => {
-        setSuccess(false);
-      }, 3000);
-    });
+    // setLoading(true);
+    // setError(false);
+
+    // const newComment = {
+    //   name,
+    //   email,
+    //   comment,
+    //   slug,
+    // };
+
+    // submitComment(newComment).then((res) => {
+    //   if (res.inputError) {
+    //     setError(true);
+    //     return;
+    //   }
+    //   setError(false);
+    //   setLoading(false);
+    //   setSuccess(true);
+    //   setTimeout(() => {
+    //     setSuccess(false);
+    //   }, 3000);
+    // });
   };
 
   return (
@@ -93,4 +101,4 @@ const CommentsForm = ({ slug }) => {
   );
 };
 
-export default CommentsForm;
+export default CommentForm;
