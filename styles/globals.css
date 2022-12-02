@@ -15,7 +15,7 @@
 body {
   overflow: overlay;
   -webkit-tap-highlight-color: transparent;
-  @apply bg-[url('../public/background.png')] bg-fixed bg-cover text-neutral-900 font-medium font-['Nunito'];
+  @apply bg-[url('../public/background.png')] bg-fixed bg-cover bg-center text-neutral-900 font-medium font-['Nunito'];
 }
 
 /* keep the footer at the bottom of the page */
@@ -29,14 +29,14 @@ body {
   .wrapper {
     @apply container m-auto p-3 sm:p-5;
   }
-  .navbar {
-    @apply bg-gradient-to-br from-green-300 to-indigo-400;
-  }
+  /* .navbar {
+    @apply bg-gradient-to-br from-teal-300 to-indigo-400;
+  } */
 }
-@layer utilities {
+/* @layer utilities {
   @media screen and (min-width: 640px) {
     .navbar {
       background: transparent;
     }
   }
-}
+} */

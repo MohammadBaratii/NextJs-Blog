@@ -17,7 +17,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <header className="sticky top-0 left-0 bg-white/50 backdrop-blur-md z-10">
+    <header className="sticky top-0 left-0 bg-white/50 shadow-lg backdrop-blur-md z-10">
       <nav className="wrapper py-3 sm:flex sm:justify-between sm:items-center">
         <div className="flex justify-between items-center">
           <h1 className="text-2xl font-bold">
@@ -30,7 +30,7 @@ const Navbar = () => {
             {isNavOpen ? (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="w-6 h-6"
+                className="w-7 h-7"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -45,7 +45,7 @@ const Navbar = () => {
             ) : (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="w-6 h-6"
+                className="w-7 h-7"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -64,8 +64,7 @@ const Navbar = () => {
           <ul
             className={`${
               isNavOpen ? "left-0" : "-left-full"
-            } navbar absolute grid place-content-center gap-3 top-0 w-full h-screen text-neutral-100 !duration-300 text-center sm:relative sm:flex sm:items-center sm:left-0 sm:w-full sm:h-fit sm:text-neutral-900 sm:backdrop-blur-0`}
-            style={{}}
+            } navbar absolute grid place-content-center gap-3 top-0 w-full h-screen bg-cyan-500 text-white transition-[left] duration-300 text-center sm:relative sm:flex sm:items-center sm:left-0 sm:w-full sm:h-fit sm:bg-transparent sm:text-neutral-900 sm:transition-none`}
           >
             {NAVBAR_BUTTONS.map((button) => {
               return (
