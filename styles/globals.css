@@ -29,14 +29,4 @@ body {
   .wrapper {
     @apply container m-auto p-3 sm:p-5;
   }
-  /* .navbar {
-    @apply bg-gradient-to-br from-teal-300 to-indigo-400;
-  } */
 }
-/* @layer utilities {
-  @media screen and (min-width: 640px) {
-    .navbar {
-      background: transparent;
-    }
-  }
-} */
