@@ -6,7 +6,7 @@ const Comments = ({ slug }) => {
 
   useEffect(() => {
     getComments(slug).then((res) => setComments(res));
-  }, []);
+  }, [slug]);
 
   if (!comments.length) {
     return <div className="p-5 bg-white rounded-xl">No comments yet!</div>;

@@ -14,7 +14,7 @@ const PostWidgets = ({ category, slug }) => {
     } else {
       getRecentPosts().then((result) => setRelatedPosts(result));
     }
-  }, [slug]);
+  }, [slug, category]);
 
   return (
     <div className="grid gap-2 p-5 bg-white rounded-xl">

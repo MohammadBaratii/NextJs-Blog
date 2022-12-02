@@ -7,7 +7,7 @@ export default function Home({ posts }) {
   return (
     <>
       <Head>
-        <title>Blog</title>
+        <title>NextJs Blog</title>
         <meta name="description" content="A Blog App using Next.js" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
