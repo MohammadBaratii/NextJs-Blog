@@ -1,12 +1,12 @@
 const Footer = () => {
   return (
     <footer className="mt-auto py-4 bg-neutral-900 text-neutral-400 text-base font-normal">
-      <h3 className="mb-5 text-center">
+      <h5 className="mb-5 text-center">
         Powered by{" "}
         <span className="text-neutral-100 font-medium">Mohammad Barati</span>{" "}
         <br className="sm:hidden" />
         at November 2022.
-      </h3>
+      </h5>
       <div className="flex justify-center items-center gap-10 sm:gap-16">
         <a href="https://t.me/thisis_mmd" target="_blank" rel="noreferrer">
           <svg

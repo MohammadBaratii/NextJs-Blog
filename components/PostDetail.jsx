@@ -1,6 +1,7 @@
 import React from "react";
 import moment from "moment";
 import Image from "next/image";
+import Link from "next/link";
 
 const PostDetail = ({ post }) => {
   const getContentFragment = (index, text, obj, type) => {
@@ -80,7 +81,7 @@ const PostDetail = ({ post }) => {
               height="36"
               className="w-9 h-9 object-cover object-top"
             />
-            <h3 className="text-neutral-600">{post.author.name}</h3>
+            <h4 className="text-neutral-600">{post.author.name}</h4>
           </div>
           <div className="flex items-center gap-1">
             <svg
@@ -110,7 +111,19 @@ const PostDetail = ({ post }) => {
 
           return getContentFragment(index, children, typeObj, typeObj.type);
         })}
-        <h3 className="text-neutral-600"></h3>
+        <div className="flex items-center gap-2">
+          {post.categories.map((category) => {
+            return (
+              <Link
+                key={category.slug}
+                href={`/category/${category.slug}`}
+                className="p-3 py-1 bg-neutral-500 text-white rounded-full underline hover:bg-neutral-600"
+              >
+                #{category.name}
+              </Link>
+            );
+          })}
+        </div>
       </div>
     </article>
   );

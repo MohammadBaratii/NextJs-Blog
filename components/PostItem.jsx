@@ -38,7 +38,7 @@ const PostItem = ({
               height="36"
               className="w-9 h-9 object-cover"
             />
-            <h3 className="text-neutral-600">{author.name}</h3>
+            <h4 className="text-neutral-600">{author.name}</h4>
           </div>
           <div className="flex items-center gap-1">
             <svg

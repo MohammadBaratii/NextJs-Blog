@@ -83,9 +83,17 @@ const CarouselList = () => {
         swipeable
         rtl={0}
         responsive={{
-          desktop: {
+          largeDesktop: {
             breakpoint: {
               max: 3000,
+              min: 1280,
+            },
+            items: 5,
+            partialVisibilityGutter: 40,
+          },
+          desktop: {
+            breakpoint: {
+              max: 1279,
               min: 1024,
             },
             items: 4,
