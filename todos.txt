@@ -1,4 +1,0 @@
-- create sorting functionality
-- footer
-- readme
-- remove todos.txt

@@ -118,7 +118,7 @@ const CarouselList = () => {
         }}
       >
         {posts.map((post) => {
-          return <CarouselItem key={post.node.createdAt} {...post.node} />;
+          return <CarouselItem key={post.createdAt} {...post} />;
         })}
       </Carousel>
     </div>

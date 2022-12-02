@@ -4,31 +4,26 @@ const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT;
 
 export const getPosts = async () => {
   const query = gql`
-    query MyQuery {
-      postsConnection {
-        edges {
-          cursor
-          node {
-            author {
-              bio
-              name
-              id
-              photo {
-                url
-              }
-            }
-            createdAt
-            slug
-            title
-            excerpt
-            featuredImage {
-              url
-            }
-            categories {
-              name
-              slug
-            }
+    query GetAllPosts {
+      posts {
+        author {
+          bio
+          name
+          id
+          photo {
+            url
           }
+        }
+        createdAt
+        slug
+        title
+        excerpt
+        featuredImage {
+          url
+        }
+        categories {
+          name
+          slug
         }
       }
     }
@@ -36,12 +31,12 @@ export const getPosts = async () => {
 
   const result = await request(graphqlAPI, query);
 
-  return result.postsConnection.edges;
+  return result.posts;
 };
 
 export const getFeaturedPosts = async () => {
   const query = gql`
-    query GetCategoryPost() {
+    query GetFeaturedPosts() {
       posts(where: {featuredPost: true}) {
         author {
           name
@@ -67,7 +62,7 @@ export const getFeaturedPosts = async () => {
 
 export const getCategories = async () => {
   const query = gql`
-    query GetGategories {
+    query GetCategories {
       categories {
         name
         slug
@@ -116,7 +111,7 @@ export const getPostDetails = async (slug) => {
 
 export const getSimilarPosts = async (categories, slug) => {
   const query = gql`
-    query GetPostDetails($slug: String!, $categories: [String!]) {
+    query GetSimilarPosts($slug: String!, $categories: [String!]) {
       posts(
         where: {
           slug_not: $slug
@@ -240,7 +235,7 @@ export const getComments = async (slug) => {
 
 export const getRecentPosts = async () => {
   const query = gql`
-    query GetPostDetails() {
+    query GetRecentPosts() {
       posts(
         orderBy: createdAt_ASC
         last: 3
