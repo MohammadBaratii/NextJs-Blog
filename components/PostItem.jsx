@@ -20,7 +20,7 @@ const PostItem = ({
         className="w-full h-80 object-cover"
       />
       <div className="space-y-3 p-3 sm:px-5">
-        <h2 className="text-center text-2xl font-bold ">
+        <h2 className="text-center text-xl font-bold sm:text-2xl">
           <Link
             href={`/post/${slug}`}
             className="400 hover:underline"

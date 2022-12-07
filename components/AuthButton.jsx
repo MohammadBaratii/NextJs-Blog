@@ -10,7 +10,7 @@ const AuthButton = () => {
           <img
             src={session.user.image}
             alt="User Avatar"
-            className="block w-9 h-9 rounded-full ring ring-white"
+            className="block w-9 h-9 m-auto rounded-full ring ring-white"
           />
         </Link>
       ) : (
