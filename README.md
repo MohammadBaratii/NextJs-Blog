@@ -1,6 +1,6 @@
 ![image info](./public/page.png)
 
-# Next.js Blog
+# Next.js Blog ([Live Site](https://next-js-blog-xi-mauve.vercel.app))
 
 A blog app using Next.js, GraphQL and TailwindCss.
 
