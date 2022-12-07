@@ -1,26 +1,30 @@
-import { useRef, useState } from "react";
-import { submitComment } from "../services";
+import { useState } from "react";
+// import { submitComment } from "../services";
 
 const CommentForm = ({ slug }) => {
+  const [enteredName, setEnteredName] = useState("");
+  const [enteredEmail, setEnteredEmail] = useState("");
+  const [enteredComment, setEnteredComment] = useState("");
   const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-  const enteredName = useRef();
-  const enteredEmail = useRef();
-  const enteredComment = useRef();
 
   const handleSendComment = (e) => {
     e.preventDefault();
 
-    const name = enteredName.current.value;
-    const email = enteredEmail.current.value;
-    const comment = enteredComment.current.value;
-
-    if (name.trim() === "" || email.trim() === "" || comment.trim() === "") {
+    if (
+      enteredName.trim() === "" ||
+      enteredEmail.trim() === "" ||
+      enteredComment.trim() === ""
+    ) {
       setError(true);
       return;
     }
 
+    // send fake comment
+    setEnteredName("");
+    setEnteredEmail("");
+    setEnteredComment("");
     setError(false);
     setSuccess(true);
     setTimeout(() => {
@@ -33,9 +37,9 @@ const CommentForm = ({ slug }) => {
     // setError(false);
 
     // const newComment = {
-    //   name,
-    //   email,
-    //   comment,
+    //   enteredName,
+    //   enteredEmail,
+    //   enteredComment,
     //   slug,
     // };
 
@@ -44,6 +48,9 @@ const CommentForm = ({ slug }) => {
     //     setError(true);
     //     return;
     //   }
+    //   setEnteredName("");
+    //   setEnteredEmail("");
+    //   setEnteredComment("");
     //   setError(false);
     //   setLoading(false);
     //   setSuccess(true);
@@ -63,21 +70,24 @@ const CommentForm = ({ slug }) => {
         <input
           type="text"
           placeholder="Name"
+          value={enteredName}
+          onChange={(e) => setEnteredName(e.target.value)}
           className="flex-1 p-2 bg-neutral-200 rounded-md outline-indigo-300"
-          ref={enteredName}
         />
         <input
           type="email"
           placeholder="Email"
+          value={enteredEmail}
+          onChange={(e) => setEnteredEmail(e.target.value)}
           className="flex-1 p-2 bg-neutral-200 rounded-md outline-indigo-300"
-          ref={enteredEmail}
         />
       </div>
       <textarea
         placeholder="Comment"
         rows="5"
+        value={enteredComment}
+        onChange={(e) => setEnteredComment(e.target.value)}
         className="flex-1 w-full p-2 bg-neutral-200 rounded-md outline-indigo-300"
-        ref={enteredComment}
       ></textarea>
       {error && (
         <p className="text-red-500 text-center">

@@ -3,9 +3,9 @@ import { GraphQLClient, gql } from "graphql-request";
 const graphqlApi = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT;
 
 export default async function handler(req, res) {
-  const name = req.body.name;
-  const email = req.body.email;
-  const comment = req.body.comment;
+  const name = req.body.enteredName;
+  const email = req.body.enteredEmail;
+  const comment = req.body.enteredComment;
 
   if (name.trim() === "" || email.trim() === "" || comment.trim() === "") {
     res.status(500).json({ inputError: "empty input" });
