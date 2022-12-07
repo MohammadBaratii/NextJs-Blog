@@ -119,7 +119,7 @@ const Navbar = () => {
                 </ul>
               </div>
             </li>
-            <li>
+            <li onClick={() => setIsNavOpen(false)}>
               <AuthButton />
             </li>
           </ul>

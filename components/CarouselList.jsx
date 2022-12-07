@@ -77,7 +77,7 @@ const CarouselList = () => {
         autoPlaySpeed={2500}
         customRightArrow={<CustomRightArrow />}
         customLeftArrow={<CustomLeftArrow />}
-        draggable
+        draggable={false}
         infinite
         pauseOnHover
         swipeable
